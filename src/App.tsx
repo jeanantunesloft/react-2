@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { Button } from './components/Button';
 import { MovieCard } from './components/MovieCard';
 
-// import { SideBar } from './components/SideBar';
-// import { Content } from './components/Content';
+import { SideBar } from './components/SideBar';
+import { Content } from './components/Content';
 
 import { api } from './services/api';
 
@@ -60,9 +60,7 @@ export function App() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <nav className="sidebar">
-        <span>Watch<p>Me</p></span>
-
+      <SideBar>
         <div className="buttons-container">
           {genres.map(genre => (
             <Button
@@ -74,10 +72,9 @@ export function App() {
             />
           ))}
         </div>
+      </SideBar>
 
-      </nav>
-
-      <div className="container">
+      <Content>     
         <header>
           <span className="category">Categoria:<span> {selectedGenre.title}</span></span>
         </header>
@@ -89,7 +86,7 @@ export function App() {
             ))}
           </div>
         </main>
-      </div>
+      </Content>
     </div>
   )
 }
